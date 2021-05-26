@@ -6,9 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hmrs.business.abstracts.JobService;
-<<<<<<< HEAD
+
 import kodlamaio.hmrs.core.utilities.results.DataResult;
-import kodlamaio.hmrs.core.utilities.results.ErrorDataResult;
 import kodlamaio.hmrs.core.utilities.results.ErrorResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
 import kodlamaio.hmrs.core.utilities.results.SuccessDataResult;
@@ -43,26 +42,5 @@ public class JobManager implements JobService {
 		}else {
 		this.jobDao.save(job);
 		return new SuccessResult("Başarıyla eklendi");}
-=======
-import kodlamaio.hmrs.dataAcces.abstracts.JobDao;
-import kodlamaio.hmrs.entities.concretes.Job;
 
-@Service
-public class JobManager implements JobService {
-	
-	private JobDao jobDao;
-	
-	@Autowired
-	public JobManager(JobDao jobDao) {
-		super();
-		this.jobDao = jobDao;
-	}
-
-	@Override
-	public List<Job> getAll() {
-		return this.jobDao.findAll();
-		
->>>>>>> branch 'master' of https://github.com/ZakariaRezoug/Hrms
-	}
-
-}
+}}

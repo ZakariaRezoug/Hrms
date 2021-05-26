@@ -2,7 +2,7 @@ package kodlamaio.hmrs;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-<<<<<<< HEAD
+
 import org.springframework.context.annotation.Bean;
 
 import springfox.documentation.builders.PathSelectors;
@@ -26,14 +26,5 @@ public class HrmsApplication {
 	          .paths(PathSelectors.any())                          
 	          .build();                                           
 	    }
-=======
-
-@SpringBootApplication
-public class HrmsApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(HrmsApplication.class, args);
-	}
->>>>>>> branch 'master' of https://github.com/ZakariaRezoug/Hrms
-
 }
+
