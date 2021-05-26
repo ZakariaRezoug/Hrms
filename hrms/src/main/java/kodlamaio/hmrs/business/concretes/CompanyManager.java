@@ -61,8 +61,9 @@ public class CompanyManager implements CompanyService {
 			if(!employeeValid.isValidatedByEmployee(company)) {
 				return new ErrorResult("Hesabınız henüz doğrulanmamıştır. "+"Kullanıcı eklenemedi");
 			}
+			else {
 			this.companyDao.save(company);
-			return new SuccessResult("Başarıyla eklendi");
+			return new SuccessResult("Başarıyla eklendi");}
 		}
 		}
 	}

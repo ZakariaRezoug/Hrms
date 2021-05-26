@@ -56,7 +56,11 @@ public class CandidateManager implements CandidatesService {
 		else {
 			if(!emailvalid.isEmailValid(candidate.getEmail())) {
 				return new ErrorResult("Geçersiz email girdiniz "+"Kullanıcı eklenemedi");
-			}else {
+			}
+			if(!emailvalid.isEmailValidonclick(candidate.getEmail())) {
+				return new ErrorResult("Doğrulama linkine tıklayınız.."+"Kullanıcı eklenemedi");
+			}
+			else {
 			
 		this.candidateDao.save(candidate);
 		return new SuccessResult("Kullanıcı eklendi");}}
