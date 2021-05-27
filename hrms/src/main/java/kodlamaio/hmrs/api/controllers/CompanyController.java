@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.hmrs.business.abstracts.CompanyService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
-import kodlamaio.hmrs.entities.concretes.Companies;
+import kodlamaio.hmrs.entities.concretes.Company;
 
 @RestController
 @RequestMapping("/api/Company")
@@ -25,12 +25,12 @@ public class CompanyController {
 		this.companyService = companyService;
 	}
 	@GetMapping("/getall")
-	public DataResult<List<Companies>> getAll(){
+	public DataResult<List<Company>> getAll(){
 		
 		return this.companyService.getAll();
 	}
 	@PostMapping("/add")
-	public Result add(@RequestBody Companies company) {
+	public Result add(@RequestBody Company company) {
 		return this.companyService.add(company);
 	}
 	

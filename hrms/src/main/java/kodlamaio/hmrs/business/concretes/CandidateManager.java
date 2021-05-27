@@ -14,7 +14,7 @@ import kodlamaio.hmrs.core.utilities.results.Result;
 import kodlamaio.hmrs.core.utilities.results.SuccessDataResult;
 import kodlamaio.hmrs.core.utilities.results.SuccessResult;
 import kodlamaio.hmrs.dataAcces.abstracts.CandidateDao;
-import kodlamaio.hmrs.entities.concretes.Candidates;
+import kodlamaio.hmrs.entities.concretes.Candidate;
 
 @Service
 public class CandidateManager implements CandidatesService {
@@ -33,16 +33,16 @@ public class CandidateManager implements CandidatesService {
 	}
 
 	@Override
-	public DataResult<List<Candidates>> getAll() {
+	public DataResult<List<Candidate>> getAll() {
 		
-		return new SuccessDataResult<List<Candidates>>
+		return new SuccessDataResult<List<Candidate>>
 		(this.candidateDao.findAll(),"Data listelendi");
 		
 	}
 	
 
 	@Override
-	public Result add(Candidates candidate) {
+	public Result add(Candidate candidate) {
 		if(candidateDao.findByEmailEquals(candidate.getEmail())!= null || candidateDao.findByNationaltyIdEquals(candidate.getNationaltyId()) != null) {
 			return new ErrorResult("Kullanıcı eklenemedi");
 		}

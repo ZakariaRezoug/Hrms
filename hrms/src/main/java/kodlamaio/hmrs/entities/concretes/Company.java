@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @PrimaryKeyJoinColumn(name = "company_id")
-public class Companies extends User {
+public class Company extends User {
 	@Column(name = "company_name")
 	private String companyName;
 	
@@ -25,7 +25,7 @@ public class Companies extends User {
 	@Column(name = "phone_number")
 	private String phoneNumber;
 	
-	public Companies(int id,String email,String password,String companyName,String webSite,String phoneNumber) {
+	public Company(int id,String email,String password,String companyName,String webSite,String phoneNumber) {
 		
 		super(id,email,password);
 		this.companyName = companyName;

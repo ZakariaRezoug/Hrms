@@ -11,7 +11,7 @@ import kodlamaio.hmrs.core.utilities.results.Result;
 import kodlamaio.hmrs.core.utilities.results.SuccessDataResult;
 import kodlamaio.hmrs.core.utilities.results.SuccessResult;
 import kodlamaio.hmrs.dataAcces.abstracts.EmployeesDao;
-import kodlamaio.hmrs.entities.concretes.Employees;
+import kodlamaio.hmrs.entities.concretes.Employee;
 @Service
 public class EmployeeManager implements EmployeeService {
 	
@@ -25,14 +25,14 @@ public class EmployeeManager implements EmployeeService {
 
 
 	@Override
-	public DataResult<List<Employees>> getAll() {
+	public DataResult<List<Employee>> getAll() {
 		
-		return new SuccessDataResult<List<Employees>>
+		return new SuccessDataResult<List<Employee>>
 		(this.employeeDao.findAll(),"Çalışanlar listelendi");
 	}
 
 	@Override
-	public Result add(Employees employee) {
+	public Result add(Employee employee) {
 		this.employeeDao.save(employee);
 		return new SuccessResult("Çalışan eklendi");
 	}

@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import kodlamaio.hmrs.entities.concretes.Candidates;
+import kodlamaio.hmrs.entities.concretes.Candidate;
 @Repository
-public interface CandidateDao extends JpaRepository<Candidates, Integer> {
-	Candidates findByEmailEquals(String email);
-	Candidates findByNationaltyIdEquals(String nationaltyId);
+public interface CandidateDao extends JpaRepository<Candidate, Integer> {
+	Candidate findByEmailEquals(String email);
+	Candidate findByNationaltyIdEquals(String nationaltyId);
 	
 }

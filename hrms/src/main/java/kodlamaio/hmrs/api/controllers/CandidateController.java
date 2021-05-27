@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.hmrs.business.abstracts.CandidatesService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
-import kodlamaio.hmrs.entities.concretes.Candidates;
+import kodlamaio.hmrs.entities.concretes.Candidate;
 
 @RestController
 @RequestMapping("/api/candidates")
@@ -27,14 +27,14 @@ public class CandidateController {
 	}
 	
 	@GetMapping("/getall")
-	public DataResult<List<Candidates>> getAll(){
+	public DataResult<List<Candidate>> getAll(){
 		
 		return this.candidatesService.getAll();
 				
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody Candidates candidate) {
+	public Result add(@RequestBody Candidate candidate) {
 		return this.candidatesService.add(candidate);
 	}
 	

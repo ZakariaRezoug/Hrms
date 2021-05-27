@@ -15,7 +15,7 @@ import kodlamaio.hmrs.core.utilities.results.SuccessDataResult;
 import kodlamaio.hmrs.core.utilities.results.SuccessResult;
 import kodlamaio.hmrs.dataAcces.abstracts.CompaniesDao;
 
-import kodlamaio.hmrs.entities.concretes.Companies;
+import kodlamaio.hmrs.entities.concretes.Company;
 
 @Service
 public class CompanyManager implements CompanyService {
@@ -33,15 +33,15 @@ public class CompanyManager implements CompanyService {
 
 
 	@Override
-	public DataResult<List<Companies>> getAll() {
+	public DataResult<List<Company>> getAll() {
 		
-		return new SuccessDataResult<List<Companies>>
+		return new SuccessDataResult<List<Company>>
 		(this.companyDao.findAll() ,"Şirketler listelendi");
 	}
 
 
 	@Override
-	public Result add(Companies company) {
+	public Result add(Company company) {
 		
 		if(companyDao.findByEmailEquals(company.getEmail())!= null || companyDao.findByWebSiteEquals(company.getWebSite()) != null) {
 			return new ErrorResult("Şirket eklenemedi");
@@ -67,7 +67,7 @@ public class CompanyManager implements CompanyService {
 		}
 		}
 	}
-	private Result eMailequalsWebSite(Companies company) {
+	private Result eMailequalsWebSite(Company company) {
         String email = company.getEmail();
         String[] emailSplit = email.split("@");
         if(!emailSplit[1].equals(company.getWebSite())) {

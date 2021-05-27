@@ -4,9 +4,9 @@ import java.util.List;
 
 import kodlamaio.hmrs.core.utilities.results.DataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
-import kodlamaio.hmrs.entities.concretes.Employees;
+import kodlamaio.hmrs.entities.concretes.Employee;
 
 public interface EmployeeService {
-	DataResult<List<Employees>> getAll();
-	Result add(Employees employee);
+	DataResult<List<Employee>> getAll();
+	Result add(Employee employee);
 }

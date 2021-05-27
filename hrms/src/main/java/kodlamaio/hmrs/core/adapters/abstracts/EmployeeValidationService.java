@@ -1,8 +1,8 @@
 package kodlamaio.hmrs.core.adapters.abstracts;
 
-import kodlamaio.hmrs.entities.concretes.Companies;
+import kodlamaio.hmrs.entities.concretes.Company;
 
 
 public interface EmployeeValidationService {
-	boolean isValidatedByEmployee(Companies company);
+	boolean isValidatedByEmployee(Company company);
 }

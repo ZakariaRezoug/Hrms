@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @PrimaryKeyJoinColumn(name = "user_id")
-public class Candidates extends User {
+public class Candidate extends User {
 
 	@Column(name = "first_name")
 	private String firstName;
@@ -31,7 +31,7 @@ public class Candidates extends User {
 	@Column(name = "birth_year")
 	private String birthYear;
 
-	public Candidates(int id, String email, String password, String firstName, 
+	public Candidate(int id, String email, String password, String firstName, 
 			String lastName, String nationaltyId,String birthYear) {
 		
 		super(id,email,password);
