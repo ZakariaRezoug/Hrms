@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import kodlamaio.hmrs.core.adapters.abstracts.FakeMernisService;
 @Service
-public class FakeMernisManager implements FakeMernisService {
+public class FakeMernisAdapter implements FakeMernisService {
 
 	@Override
 	public boolean checkUser(String nationaltyId, String firstName, String lastName, String dateOfBirth) {
