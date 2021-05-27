@@ -69,8 +69,10 @@ public class CompanyManager implements CompanyService {
 	}
 	private Result eMailequalsWebSite(Company company) {
         String email = company.getEmail();
+        String webSite = company.getWebSite();
         String[] emailSplit = email.split("@");
-        if(!emailSplit[1].equals(company.getWebSite())) {
+        String[] webSiteSplit = webSite.split("www.");
+        if(!emailSplit[1].equals(webSiteSplit[1])) {
             return new ErrorResult("E-posta ile web domaininiz ayni olmalidir");
         }
         return null;
