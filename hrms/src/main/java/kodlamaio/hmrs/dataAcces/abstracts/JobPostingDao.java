@@ -9,7 +9,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import kodlamaio.hmrs.entities.concretes.JobPosting;
 
 public interface JobPostingDao extends JpaRepository<JobPosting, Integer> {
-	/*List<JobPosting> getByLastApplyDate(LocalDate lastApplyDate);*/
+	List<JobPosting> getByisActiveTrue();
+	List<JobPosting> getByisActiveTrueAndCompany_companyName(String companyName);
+	List<JobPosting> getByIsActiveTrueOrderByPostedDate();
 	
-	List<JobPosting> getByCompany_companyName(String companyName);
+	
 }

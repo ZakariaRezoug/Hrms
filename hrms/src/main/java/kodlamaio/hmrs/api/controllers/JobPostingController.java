@@ -24,23 +24,33 @@ public class JobPostingController {
 		super();
 		this.jobPostingService = jobPostingService;
 	}
-	@GetMapping("/getAll")
-	public DataResult<List<JobPosting>> getAll(){
+	@GetMapping("/getAllByIsActive")
+	public DataResult<List<JobPosting>> getByisActiveTrue(){
 		
-		return this.jobPostingService.getAll();
+		return this.jobPostingService.getByisActiveTrue();
 	}
 	@PostMapping("/add")
 	public Result add(@RequestBody JobPosting jobPosting) {
 		
 		return this.jobPostingService.add(jobPosting);
 	}
-	@GetMapping("/getAllSortByLastDate")
-	public DataResult<List<JobPosting>> sortByLastDate(){
-		return this.jobPostingService.sortByLastDate();
+	@PostMapping("/delete")
+	public Result delete(int id) {
+		
+		return this.jobPostingService.delete(id);
 	}
-	@GetMapping("/getAllByCompanyName")
-	public DataResult<List<JobPosting>> getByCompanyName(String companyName){
-		return this.jobPostingService.getByCompanyName(companyName);
+	@PostMapping("/update")
+	public Result update(JobPosting jobPosting) {
+		return this.jobPostingService.update(jobPosting);
 	}
+	@GetMapping("/getAllIsActiveAndSortByLastDate")
+	public DataResult<List<JobPosting>> getByIsActiveTrueOrderByPostedDate(){
+		return this.jobPostingService.getByIsActiveTrueOrderByPostedDate();
+	}
+	@GetMapping("/getAllByCompanyNameAndIsActive")
+	public DataResult<List<JobPosting>> getByisActiveAndCompanyName(String companyName){
+		return this.jobPostingService.getByisActiveTrueAndCompany_companyName(companyName);
+	}
+	
 
 }

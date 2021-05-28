@@ -8,8 +8,11 @@ import kodlamaio.hmrs.core.utilities.results.Result;
 import kodlamaio.hmrs.entities.concretes.JobPosting;
 
 public interface JobPostingService {
-	DataResult<List<JobPosting>> getAll();
 	Result add(JobPosting jobPosting);
-	DataResult<List<JobPosting>> sortByLastDate();
-	DataResult<List<JobPosting>> getByCompanyName(String companyName);
+	Result delete(int id);
+	Result update(JobPosting jobPosting);
+	DataResult<List<JobPosting>> getByisActiveTrue();
+	DataResult<List<JobPosting>> getByIsActiveTrueOrderByPostedDate();
+	DataResult<List<JobPosting>> getByisActiveTrueAndCompany_companyName(String companyName);
+	DataResult<JobPosting> getById(int id);
 }
