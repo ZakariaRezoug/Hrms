@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hmrs.business.abstracts.JobPostingService;
@@ -42,6 +43,10 @@ public class JobPostingController {
 	@PostMapping("/update")
 	public Result update(JobPosting jobPosting) {
 		return this.jobPostingService.update(jobPosting);
+	}
+	@PostMapping("/setActivetoPassive")
+	public Result setActivetoPassive(@RequestParam int id) {
+		return this.jobPostingService.setActivetoPassive(id);
 	}
 	@GetMapping("/getAllIsActiveAndSortByLastDate")
 	public DataResult<List<JobPosting>> getByIsActiveTrueOrderByPostedDate(){

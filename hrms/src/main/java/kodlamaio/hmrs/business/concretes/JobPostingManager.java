@@ -49,6 +49,18 @@ public class JobPostingManager implements JobPostingService {
 		this.jobPostingDao.save(jobPosting);
 		return new SuccessResult("İş ilanı güncellendi");
 	}
+	
+	@Override
+	public Result setActivetoPassive(int id) {
+		JobPosting jobPosting = getById(id).getData();
+		if(jobPosting.isActive()) {
+		jobPosting.setActive(false);
+		update(jobPosting);
+		return new SuccessResult("İş ilanı pasif hale getirildi.");
+		}else {
+		
+		return new ErrorResult("İş ilanı zaten pasif.");}
+	}
 
 	@Override
 	public DataResult<List<JobPosting>> getByisActiveTrue() {
@@ -75,6 +87,7 @@ public class JobPostingManager implements JobPostingService {
 		
 		return new SuccessDataResult<JobPosting>(this.jobPostingDao.getOne(id));
 	}
+
 
 
 	
