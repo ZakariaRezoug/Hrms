@@ -2,9 +2,11 @@ package kodlamaio.hmrs.entities.concretes;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -33,6 +35,9 @@ public class Company extends User {
 	
 	@OneToMany(mappedBy = "company")
 	private List<JobPosting> jobPostings;
+	
+	@OneToOne(mappedBy = "company", cascade = CascadeType.ALL)
+	private CvExperience cvExperience;
 	
 	public Company(int id,String email,String password,String companyName,String webSite,String phoneNumber) {
 		

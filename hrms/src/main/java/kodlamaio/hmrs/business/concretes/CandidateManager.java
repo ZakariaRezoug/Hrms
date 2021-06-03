@@ -66,6 +66,12 @@ public class CandidateManager implements CandidatesService {
 		return new SuccessResult("Kullanıcı eklendi");}}
 	}
 
+	@Override
+	public DataResult<Candidate> getById(int id) {
+		
+		return new SuccessDataResult<Candidate>(this.candidateDao.getOne(id));
+	}
+
 
 
 	

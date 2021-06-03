@@ -1,9 +1,13 @@
 package kodlamaio.hmrs.entities.concretes;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,5 +45,9 @@ public class Candidate extends User {
 		this.birthYear = birthYear;
 		
 	}
+	
+	@OneToOne(mappedBy = "candidate")
+	@JsonIgnore()
+    private Cv cv;
 
 }
