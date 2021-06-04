@@ -10,22 +10,22 @@ import org.springframework.stereotype.Service;
 import kodlamaio.hmrs.business.abstracts.CvExperienceService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
+import kodlamaio.hmrs.core.utilities.results.SuccessDataResult;
 import kodlamaio.hmrs.core.utilities.results.SuccessResult;
 import kodlamaio.hmrs.dataAcces.abstracts.CvExperienceDao;
-import kodlamaio.hmrs.entities.concretes.Cv;
 import kodlamaio.hmrs.entities.concretes.CvExperience;
 import kodlamaio.hmrs.entities.dtos.CvDto;
 @Service
 public class CvExperienceManager implements CvExperienceService {
 	
 	private CvExperienceDao cvExperienceDao;
-	private ModelMapper modelMapper;
+	
 
 	@Autowired
-	public CvExperienceManager(CvExperienceDao cvExperienceDao,ModelMapper modelMapper) {
+	public CvExperienceManager(CvExperienceDao cvExperienceDao) {
 		super();
 		this.cvExperienceDao = cvExperienceDao;
-		this.modelMapper = modelMapper;
+		
 	}
 
 	@Override
@@ -35,21 +35,27 @@ public class CvExperienceManager implements CvExperienceService {
 	}
 
 	@Override
-	public Result add(CvDto cvDto) {
-		CvExperience cvExperience = this.modelMapper.map(cvDto, CvExperience.class);	
+	public Result add(CvExperience cvExperience) {
+		
 		this.cvExperienceDao.save(cvExperience);
 		return new SuccessResult("Cv eklendi.");
 	}
 	
-	private List<CvDto> dtoGenerator(List<CvExperience> posting){
-        return posting.stream().map(adv-> modelMapper.map(adv,CvDto.class)).collect(Collectors.toList());
-        }
+
 
 	@Override
 	public Result addAll(List<CvExperience> cvExperince) {
 		this.cvExperienceDao.saveAll(cvExperince);
 		return new SuccessResult("Cv eklendi.");
 	}
+
+	@Override
+	public SuccessDataResult<List<CvExperience>> getByCandidateIdOrderByBeginingDate(int id) {
+		
+		return new SuccessDataResult<List<CvExperience>>(this.cvExperienceDao.getByCandidateIdOrderByBeginingDate(id),"Tecrübe listelendi.");
+	}
+
+
 	
 
 }

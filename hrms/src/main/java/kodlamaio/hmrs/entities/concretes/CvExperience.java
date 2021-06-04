@@ -29,11 +29,6 @@ public class CvExperience {
 	@Column(name="cv_experience_id")
 	private int cvExperienceId;
 	
-//	@Column(name="cv_id")
-//	private int cvId;
-	
-//	@Column(name="company_id")
-//	private int companyId;
 	
 	@Column(name="other_company")
 	private String otherCompany;
@@ -47,6 +42,8 @@ public class CvExperience {
 	@Column(name="cv_experience_name")
 	private String cvExperienceName;
 	
+	
+	
 	@OneToOne()
 	@JsonIgnore()
 	@JoinColumn(name = "company_id")
@@ -54,8 +51,8 @@ public class CvExperience {
 	
 	@ManyToOne()
 	@JsonIgnore()
-	@JoinColumn(name = "cv_id")
-	private Cv cv;
+	@JoinColumn(name = "user_id")
+	private Candidate candidate;
 	
 	
 }

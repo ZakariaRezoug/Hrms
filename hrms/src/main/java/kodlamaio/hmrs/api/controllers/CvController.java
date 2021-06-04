@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.hmrs.business.abstracts.CvService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
-import kodlamaio.hmrs.entities.concretes.Cv;
 import kodlamaio.hmrs.entities.dtos.CvDto;
 
 @RestController
@@ -25,11 +24,8 @@ public class CvController {
 		super();
 		this.cvService = cvService;
 	}
-	@GetMapping("/getAll")
-	public DataResult<List<CvDto>> getAll() {
-		
-		return this.cvService.getAll();
-	}
+
+	
 	@PostMapping("/add")
 	public Result add(@RequestBody CvDto cvDto,int id) {
 		return this.cvService.add(cvDto,id);

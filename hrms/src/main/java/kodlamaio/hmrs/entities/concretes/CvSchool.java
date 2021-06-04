@@ -30,11 +30,14 @@ public class CvSchool {
 	@Column(name="cv_schools_id")
 	private int cvSchoolId;
 	
-//	@Column(name="cv_id")
-//	private int cvId;
+	@Column(name="school_name")
+	private String schoolName;
 	
-//	@Column(name="school_id")
-//	private int schoolId;
+	@Column(name="school_type")
+	private String schoolType;
+	
+	@Column(name="school_departmant")
+	private String schoolDepartmant;
 	
 	@Column(name="school_begining_date")
 	private LocalDate schoolBeginingDate;
@@ -42,15 +45,12 @@ public class CvSchool {
 	@Column(name="school_graduation_date")
 	private LocalDate schoolGradiationDate;
 	
-	@OneToOne()
-	@JsonIgnore()
-	@JoinColumn(name = "school_id")
-	private School school;
+
 	
 	@ManyToOne()
 	@JsonIgnore()
-	@JoinColumn(name = "cv_id")
-	private Cv cv;
+	@JoinColumn(name = "user_id")
+	private Candidate candidate;
 	
 	
 }

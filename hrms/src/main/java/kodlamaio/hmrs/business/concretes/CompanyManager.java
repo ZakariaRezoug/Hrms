@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hmrs.business.abstracts.CompanyService;
-import kodlamaio.hmrs.core.adapters.abstracts.EmailValidationService;
-import kodlamaio.hmrs.core.adapters.abstracts.EmployeeValidationService;
+import kodlamaio.hmrs.core.utilities.adapters.abstracts.EmailValidationService;
+import kodlamaio.hmrs.core.utilities.adapters.abstracts.EmployeeValidationService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
 import kodlamaio.hmrs.core.utilities.results.ErrorResult;
 import kodlamaio.hmrs.core.utilities.results.Result;

@@ -10,6 +10,7 @@ import kodlamaio.hmrs.entities.dtos.CvDto;
 
 public interface CvSchoolService {
 	DataResult<List<CvDto>> getAll();
-	Result add(CvDto cvDto);
+	Result add(CvSchool cvSchool);
 	Result addAll(List<CvSchool> cvSchools);
+	DataResult<List<CvSchool>> getByCandidateIdOrderBySchoolBeginingDate(int id);
 }

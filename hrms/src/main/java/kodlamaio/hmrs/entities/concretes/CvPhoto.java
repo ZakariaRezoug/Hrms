@@ -35,6 +35,6 @@ public class CvPhoto {
 	
 	@ManyToOne()
 	@JsonIgnore()
-	@JoinColumn(name = "cv_id")
-	private Cv cv;
+	@JoinColumn(name = "user_id")
+	private Candidate candidate;
 }

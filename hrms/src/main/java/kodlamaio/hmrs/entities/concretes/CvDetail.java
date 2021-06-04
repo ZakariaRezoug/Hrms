@@ -1,6 +1,7 @@
 package kodlamaio.hmrs.entities.concretes;
 
-import javax.persistence.CascadeType;
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,42 +9,39 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="cv_languages")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler","cvLanguage"})
-public class CvLanguage {
+@Table(name="cv_details")
+public class CvDetail {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="cv_languages_id")
-	private int cvLanguagesId;
+	@Column(name="cv_details_id")
+	private int cvDetailId;
 	
-	@Column(name="language")
-	private String language;
+	@Column(name="cv_details")
+	private String cvDetails;
 	
-
-	@Min(value = 1)
-	@Max(value = 5)
-	@Column(name="language_level")
-	private int languageLevel;
-
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id")
+	@JsonIgnore
+	@Column(name= "cv_made_date", columnDefinition = "Date defult CURRENT_DATE")
+	private LocalDate madeDate = LocalDate.now();
+	
+	
+	@JsonIgnore
+	@Column(name= "is_active", columnDefinition = "boolean default true")
+	private boolean isActive = true;
+	
+	@ManyToOne()
 	@JsonIgnore()
+	@JoinColumn(name = "user_id")
 	private Candidate candidate;
+
 }
